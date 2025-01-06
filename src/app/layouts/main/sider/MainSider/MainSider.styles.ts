@@ -82,7 +82,7 @@ export const SiderLogoDiv = styled.div`
   align-items: center;
 
   @media only screen and ${media.md} {
-    height: ${LAYOUT.desktop.headerHeight};
+    height: 56px;
     padding-top: ${LAYOUT.desktop.paddingVertical};
     padding-bottom: ${LAYOUT.desktop.paddingVertical};
   }

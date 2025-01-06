@@ -27,7 +27,7 @@ export const LAYOUT = {
   desktop: {
     paddingVertical: "1.25rem",
     paddingHorizontal: "2.25rem",
-    headerHeight: "56px",
+    headerHeight: "40px",
     headerBg: "#fff",
     color: "#000",
     borderColor: "#E0E0E0",

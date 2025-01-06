@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Link, useLocation } from "react-router-dom";
 import * as S from "./SiderMenu.styles";
 import { sidebarNavigation, SidebarNavigationItem } from "../sidebarNavigation";
+import { useResponsive } from "../../../../../shared/hooks/useResponsive";
 
 interface SiderContentProps {
   setCollapsed?: (isCollapsed: boolean) => void;
@@ -21,6 +22,7 @@ const sidebarNavFlat = sidebarNavigation.reduce(
 const SiderMenu: React.FC<SiderContentProps> = ({ setCollapsed }) => {
   const { t } = useTranslation();
   const location = useLocation();
+  const { tabletOnly } = useResponsive();
 
   const currentMenuItem = sidebarNavFlat.find(
     ({ url }) => url === location.pathname
@@ -36,7 +38,7 @@ const SiderMenu: React.FC<SiderContentProps> = ({ setCollapsed }) => {
     <S.Menu
       mode="inline"
       defaultSelectedKeys={defaultSelectedKeys}
-      defaultOpenKeys={defaultOpenKeys}
+      defaultOpenKeys={tabletOnly ? undefined : defaultOpenKeys}
       onClick={() => setCollapsed?.(true)}
       theme="dark"
       style={{ padding: "4px" }}

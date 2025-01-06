@@ -17,8 +17,17 @@ export const Menu = styled(BaseMenu)`
     border-radius: 4px;
   }
 
-  .ant-menu-sub .ant-menu-item {
-    padding-left: 24px !important;
+  .ant-menu-submenu {
+    margin: 4px;
+  }
+
+  .ant-menu-sub {
+    padding: 0px 8px 8px !important;
+  }
+
+  .ant-menu-sub .ant-menu-item,
+  .ant-menu-submenu-title {
+    padding-left: 20px !important;
   }
 
   .sub-circle {

@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  FormOutlined,
   UserOutlined,
   UsergroupAddOutlined,
   SettingOutlined,
@@ -33,17 +32,10 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
         key: "user",
         url: "/",
       },
-    ],
-  },
-  {
-    title: "common.License",
-    key: "license",
-    icon: <FormOutlined />,
-    children: [
       {
-        title: "common.advancedForms",
-        key: "advanced-forms",
-        url: "/licenses",
+        title: "common.UserSystem",
+        key: "user-system",
+        url: "/user-system",
       },
     ],
   },

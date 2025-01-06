@@ -24,7 +24,7 @@ export const Sider = styled(BaseLayout.Sider)`
 `;
 
 export const CollapseButton = styled(BaseButton)<{ $isCollapsed: boolean }>`
-  background: var(--collapse-background-color);
+  background: #fff;
 
   border: 1px solid var(--border-color);
   transition: all 0.2s ease;
@@ -67,6 +67,11 @@ export const SiderLogoLink = styled(Link)`
   align-items: center;
   overflow: hidden;
   position: relative;
+  width: 100%;
+  justify-content: space-between;
+  .anticon-menu {
+    color: #fff;
+  }
 `;
 
 export const SiderLogoDiv = styled.div`

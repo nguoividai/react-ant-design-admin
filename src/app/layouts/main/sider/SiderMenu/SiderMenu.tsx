@@ -5,7 +5,7 @@ import * as S from "./SiderMenu.styles";
 import { sidebarNavigation, SidebarNavigationItem } from "../sidebarNavigation";
 
 interface SiderContentProps {
-  setCollapsed: (isCollapsed: boolean) => void;
+  setCollapsed?: (isCollapsed: boolean) => void;
 }
 
 const sidebarNavFlat = sidebarNavigation.reduce(
@@ -37,7 +37,7 @@ const SiderMenu: React.FC<SiderContentProps> = ({ setCollapsed }) => {
       mode="inline"
       defaultSelectedKeys={defaultSelectedKeys}
       defaultOpenKeys={defaultOpenKeys}
-      onClick={() => setCollapsed(true)}
+      onClick={() => setCollapsed?.(true)}
       theme="dark"
       style={{ padding: "4px" }}
       items={sidebarNavigation.map((nav) => {
@@ -49,15 +49,14 @@ const SiderMenu: React.FC<SiderContentProps> = ({ setCollapsed }) => {
           label: isSubMenu ? (
             t(nav.title)
           ) : (
-            <Link to={nav.url || ""}>{t(nav.title)}</Link>
+            <Link to={nav.url ?? ""}>{t(nav.title)}</Link>
           ),
           icon: nav.icon,
           children:
             isSubMenu &&
-            nav.children &&
-            nav.children.map((childNav) => ({
+            nav.children?.map((childNav) => ({
               key: childNav.key,
-              label: <Link to={childNav.url || ""}>{t(childNav.title)}</Link>,
+              label: <Link to={childNav.url ?? ""}>{t(childNav.title)}</Link>,
               title: t(childNav.title),
               icon: isSubMenu ? <span className="sub-circle"></span> : nav.icon,
             })),

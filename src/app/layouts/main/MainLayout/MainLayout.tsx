@@ -6,12 +6,16 @@ import * as S from "./MainLayout.styles";
 import { Outlet } from "react-router-dom";
 import { useResponsive } from "../../../../shared/hooks/useResponsive";
 import { Avatar } from "antd";
-import { UserOutlined } from "@ant-design/icons";
+import { MenuOutlined, UserOutlined } from "@ant-design/icons";
+import { MobileHeader } from "../sider/SiderMenu/MobileMenu";
+import { useDialog } from "../../../../shared/hooks/useDialog";
+import SiderMenu from "../sider/SiderMenu/SiderMenu";
 
 const MainLayout: React.FC = () => {
   const [isTwoColumnsLayout, setIsTwoColumnsLayout] = useState(true);
   const [siderCollapsed, setSiderCollapsed] = useState(true);
-  const { isDesktop } = useResponsive();
+  const { isDesktop, mobileOnly } = useResponsive();
+  const { open, onShow, onClose } = useDialog();
 
   useEffect(() => {
     setIsTwoColumnsLayout(isDesktop);
@@ -25,7 +29,16 @@ const MainLayout: React.FC = () => {
       />
       <S.LayoutMain>
         <MainHeader isTwoColumnsLayout={isTwoColumnsLayout}>
-          <div className="right-section"></div>
+          <div className="right-section">
+            {mobileOnly && (
+              <>
+                <MenuOutlined onClick={onShow} />
+                <MobileHeader open={open} onClose={onClose}>
+                  <SiderMenu />
+                </MobileHeader>
+              </>
+            )}
+          </div>
           <div className="avatar-section">
             <span className="user-name">duong.hoang</span>
             <Avatar

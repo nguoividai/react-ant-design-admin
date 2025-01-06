@@ -1,20 +1,20 @@
 import React from "react";
 import * as S from "./MainSider/MainSider.styles";
-import { RightOutlined } from "@ant-design/icons";
+import { MenuOutlined, RightOutlined } from "@ant-design/icons";
 import logo from "../../../../assets/logo.svg";
 // import logoDark from "assets/logo-dark.png";
 // import { useAppSelector } from "@app/hooks/reduxHooks";
 import { useResponsive } from "../../../../shared/hooks/useResponsive";
 
 interface SiderLogoProps {
-  isSiderCollapsed: boolean;
-  toggleSider: () => void;
+  isSiderCollapsed?: boolean;
+  toggleSider?: () => void;
 }
 export const SiderLogo: React.FC<SiderLogoProps> = ({
   isSiderCollapsed,
   toggleSider,
 }) => {
-  const { tabletOnly } = useResponsive();
+  const { tabletOnly, desktopOnly } = useResponsive();
 
   // const theme = useAppSelector((state) => state.theme.theme);
 
@@ -25,12 +25,13 @@ export const SiderLogo: React.FC<SiderLogoProps> = ({
     <S.SiderLogoDiv>
       <S.SiderLogoLink to="/">
         <img src={img} alt="Lightence" width={165} height={32} />
+        {desktopOnly && <MenuOutlined />}
       </S.SiderLogoLink>
       {tabletOnly && (
         <S.CollapseButton
           shape="circle"
           size="small"
-          $isCollapsed={isSiderCollapsed}
+          $isCollapsed={isSiderCollapsed ?? false}
           icon={<RightOutlined rotate={isSiderCollapsed ? 0 : 180} />}
           onClick={toggleSider}
         />

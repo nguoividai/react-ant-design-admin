@@ -20,13 +20,14 @@ export const LAYOUT = {
     paddingVertical: "0.75rem",
     paddingHorizontal: "1rem",
     headerHeight: "4.25rem",
-    headerPadding: "1rem",
+    headerPadding: "12px 24px 12px 24px",
     color: "#fff",
+    headerBg: "#29343d",
   },
   desktop: {
     paddingVertical: "1.25rem",
     paddingHorizontal: "2.25rem",
-    headerHeight: "40px",
+    headerHeight: "56px",
     headerBg: "#fff",
     color: "#000",
     borderColor: "#E0E0E0",
@@ -73,6 +74,8 @@ export const BREAKPOINTS = {
 const getMedia = <T extends number>(breakpoint: T): `(min-width: ${T}px)` =>
   `(min-width: ${breakpoint}px)`;
 
+export const getMediaPixel = (breakpoint: number) => `${breakpoint}px`;
+
 export const media = {
   xs: getMedia(BREAKPOINTS.xs),
   sm: getMedia(BREAKPOINTS.sm),
@@ -81,3 +84,13 @@ export const media = {
   xl: getMedia(BREAKPOINTS.xl),
   xxl: getMedia(BREAKPOINTS.xxl),
 };
+
+export const mobileOnlyMedia = `(max-width: ${BREAKPOINTS.md - 0.02}px)`;
+
+export const tabletOnlyMedia = `(min-width: ${
+  BREAKPOINTS.md
+}px) and (max-width: ${BREAKPOINTS.xl - 0.02}px)`;
+
+export const desktopOnlyMedia = `(min-width: ${
+  BREAKPOINTS.xl
+}px) and (max-width: ${BREAKPOINTS.xxl - 0.02}px)`;

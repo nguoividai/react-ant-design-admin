@@ -1,0 +1,13 @@
+{
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ],
+  "compilerOptions": {
+    "baseUrl": "./src", // Base URL is typically the root of the project
+    "paths": {
+      "@/": ["./src/"]
+    }
+  }
+}

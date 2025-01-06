@@ -14,7 +14,7 @@ export const SiderLogo: React.FC<SiderLogoProps> = ({
   isSiderCollapsed,
   toggleSider,
 }) => {
-  const { tabletOnly, desktopOnly } = useResponsive();
+  const { tabletOnly, desktopOnly, isBigScreen } = useResponsive();
 
   // const theme = useAppSelector((state) => state.theme.theme);
 
@@ -25,7 +25,7 @@ export const SiderLogo: React.FC<SiderLogoProps> = ({
     <S.SiderLogoDiv>
       <S.SiderLogoLink to="/">
         <img src={img} alt="Lightence" width={165} height={32} />
-        {desktopOnly && <MenuOutlined />}
+        {(desktopOnly || isBigScreen) && <MenuOutlined />}
       </S.SiderLogoLink>
       {tabletOnly && (
         <S.CollapseButton

@@ -33,6 +33,7 @@ export const Menu = styled(BaseMenu)`
   .sub-circle {
     display: flex;
     justify-content: center;
+    margin-left: -10px;
   }
 
   .sub-circle::before {

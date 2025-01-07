@@ -17,7 +17,7 @@ const Page404: React.FC = () => {
         subTitle={t("common.404SubTitle")}
         extra={
           <Button type="primary" onClick={goToHome}>
-            {t("common.backHome")}
+            {t("common.BackHome")}
           </Button>
         }
       />

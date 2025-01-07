@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import {
   LAYOUT,
   mobileOnlyMedia,
@@ -8,6 +8,7 @@ import { BaseLayout } from "../../../../shared/components/BaseLayout/BaseLayout"
 
 interface HeaderProps {
   $isTwoColumnsLayout: boolean;
+  $collapsed: boolean;
 }
 
 export default styled(BaseLayout.Content)<HeaderProps>`
@@ -20,6 +21,12 @@ export default styled(BaseLayout.Content)<HeaderProps>`
   width: 100vw;
   padding: ${LAYOUT.desktop.paddingVertical} ${LAYOUT.desktop.paddingHorizontal};
   width: calc(100vw - 260px);
+
+  ${(props) =>
+    props.$collapsed &&
+    css`
+      width: 100vw;
+    `}
 
   @media only screen and ${mobileOnlyMedia} {
     width: 100vw;

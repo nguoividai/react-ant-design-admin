@@ -4,6 +4,7 @@ import { SiderLogo } from "../SiderLogo";
 import SiderMenu from "../SiderMenu/SiderMenu";
 import { useResponsive } from "../../../../../shared/hooks/useResponsive";
 import { Overlay } from "../../../../../shared/components/Overlay/Overlay";
+import useLayout from "../../../../../shared/store/layout";
 
 interface MainSiderProps {
   isCollapsed: boolean;
@@ -16,8 +17,7 @@ const MainSider: React.FC<MainSiderProps> = ({
   ...props
 }) => {
   const { isDesktop, tabletOnly } = useResponsive();
-
-  const isCollapsible = true;
+  const { collapsed } = useLayout();
 
   const toggleSider = () => setCollapsed(!isCollapsed);
 
@@ -26,9 +26,9 @@ const MainSider: React.FC<MainSiderProps> = ({
       <S.Sider
         trigger={null}
         collapsed={!isDesktop && isCollapsed}
-        collapsedWidth={tabletOnly ? 80 : 0}
-        collapsible={isCollapsible}
-        width={260}
+        collapsedWidth={tabletOnly || isDesktop ? 80 : 0}
+        collapsible={collapsed}
+        width={collapsed ? 0 : 260}
         {...props}
       >
         <SiderLogo isSiderCollapsed={isCollapsed} toggleSider={toggleSider} />

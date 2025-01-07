@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { BaseLayout } from "../../../../shared/components/BaseLayout/BaseLayout";
 import {
   LAYOUT,
@@ -8,6 +8,7 @@ import {
 
 interface Header {
   $isTwoColumnsLayoutHeader: boolean;
+  $collapsed: boolean;
 }
 
 export const Header = styled(BaseLayout.Header)<Header>`
@@ -29,6 +30,12 @@ export const Header = styled(BaseLayout.Header)<Header>`
   }
 
   width: calc(100vw - 260px);
+
+  ${(props) =>
+    props.$collapsed &&
+    css`
+      width: 100vw;
+    `}
 
   @media only screen and ${mobileOnlyMedia} {
     width: 100vw;

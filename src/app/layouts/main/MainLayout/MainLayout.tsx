@@ -10,12 +10,14 @@ import { LogoutOutlined, MenuOutlined, UserOutlined } from "@ant-design/icons";
 import { MobileHeader } from "../sider/SiderMenu/MobileMenu";
 import { useDialog } from "../../../../shared/hooks/useDialog";
 import SiderMenu from "../sider/SiderMenu/SiderMenu";
+import useLayout from "../../../../shared/store/layout";
 
 const MainLayout: React.FC = () => {
   const [isTwoColumnsLayout, setIsTwoColumnsLayout] = useState(true);
   const [siderCollapsed, setSiderCollapsed] = useState(true);
-  const { isDesktop, mobileOnly } = useResponsive();
+  const { isDesktop, mobileOnly, isBigScreen } = useResponsive();
   const { open, onShow, onClose } = useDialog();
+  const { setCollapsed, collapsed } = useLayout();
 
   useEffect(() => {
     setIsTwoColumnsLayout(isDesktop);
@@ -57,8 +59,14 @@ const MainLayout: React.FC = () => {
         setCollapsed={setSiderCollapsed}
       />
       <S.LayoutMain>
-        <MainHeader isTwoColumnsLayout={isTwoColumnsLayout}>
+        <MainHeader
+          isTwoColumnsLayout={isTwoColumnsLayout}
+          collapsed={collapsed}
+        >
           <div className="right-section">
+            {(isDesktop || isBigScreen) && collapsed && (
+              <MenuOutlined onClick={() => setCollapsed(false)} />
+            )}
             {mobileOnly && (
               <>
                 <MenuOutlined onClick={onShow} />
@@ -84,7 +92,11 @@ const MainLayout: React.FC = () => {
             </div>
           </Dropdown>
         </MainHeader>
-        <MainContent id="main-content" $isTwoColumnsLayout={isTwoColumnsLayout}>
+        <MainContent
+          id="main-content"
+          $isTwoColumnsLayout={isTwoColumnsLayout}
+          $collapsed={collapsed}
+        >
           <div>
             <Outlet />
           </div>

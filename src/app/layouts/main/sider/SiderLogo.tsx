@@ -5,6 +5,7 @@ import logo from "../../../../assets/logo.svg";
 // import logoDark from "assets/logo-dark.png";
 // import { useAppSelector } from "@app/hooks/reduxHooks";
 import { useResponsive } from "../../../../shared/hooks/useResponsive";
+import useLayout from "../../../../shared/store/layout";
 
 interface SiderLogoProps {
   isSiderCollapsed?: boolean;
@@ -15,6 +16,7 @@ export const SiderLogo: React.FC<SiderLogoProps> = ({
   toggleSider,
 }) => {
   const { tabletOnly, desktopOnly, isBigScreen } = useResponsive();
+  const { collapsed, setCollapsed } = useLayout();
 
   // const theme = useAppSelector((state) => state.theme.theme);
 
@@ -25,7 +27,9 @@ export const SiderLogo: React.FC<SiderLogoProps> = ({
     <S.SiderLogoDiv>
       <S.SiderLogoLink to="/">
         <img src={img} alt="Lightence" width={165} height={32} />
-        {(desktopOnly || isBigScreen) && <MenuOutlined />}
+        {(desktopOnly || isBigScreen) && (
+          <MenuOutlined onClick={() => setCollapsed(!collapsed)} />
+        )}
       </S.SiderLogoLink>
       {tabletOnly && (
         <S.CollapseButton

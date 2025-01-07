@@ -17,7 +17,7 @@ export default styled(BaseLayout.Content)<HeaderProps>`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 12px 24px 12px 24px;
+  padding: 12px 24px 12px 24px !important;
   width: 100vw;
   padding: ${LAYOUT.desktop.paddingVertical} ${LAYOUT.desktop.paddingHorizontal};
   width: calc(100vw - 260px);

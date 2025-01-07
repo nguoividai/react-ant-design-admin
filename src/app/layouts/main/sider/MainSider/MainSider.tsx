@@ -4,7 +4,7 @@ import { SiderLogo } from "../SiderLogo";
 import SiderMenu from "../SiderMenu/SiderMenu";
 import { useResponsive } from "../../../../../shared/hooks/useResponsive";
 import { Overlay } from "../../../../../shared/components/Overlay/Overlay";
-import useLayout from "../../../../../shared/store/layout";
+import useLayout from "../../../../../usecases/layout";
 
 interface MainSiderProps {
   isCollapsed: boolean;

@@ -5,7 +5,7 @@ import logo from "../../../../assets/logo.svg";
 // import logoDark from "assets/logo-dark.png";
 // import { useAppSelector } from "@app/hooks/reduxHooks";
 import { useResponsive } from "../../../../shared/hooks/useResponsive";
-import useLayout from "../../../../shared/store/layout";
+import useLayout from "../../../../usecases/layout";
 
 interface SiderLogoProps {
   isSiderCollapsed?: boolean;

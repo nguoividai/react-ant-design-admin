@@ -10,7 +10,7 @@ import { LogoutOutlined, MenuOutlined, UserOutlined } from "@ant-design/icons";
 import { MobileHeader } from "../sider/SiderMenu/MobileMenu";
 import { useDialog } from "../../../../shared/hooks/useDialog";
 import SiderMenu from "../sider/SiderMenu/SiderMenu";
-import useLayout from "../../../../shared/store/layout";
+import useLayout from "../../../../usecases/layout";
 
 const MainLayout: React.FC = () => {
   const [isTwoColumnsLayout, setIsTwoColumnsLayout] = useState(true);

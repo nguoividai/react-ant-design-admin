@@ -4,6 +4,9 @@
     "User": "Người dùng",
     "License": "Bảng giá dịch vụ",
     "SystemSettings": "Cài đặt hệ thống",
-    "UserSystem": "Người dùng hệ thống"
+    "UserSystem": "Người dùng hệ thống",
+    "403SubTitle": "Bạn không được phép truy cập vào trang này",
+    "404SubTitle": "Trang này không tồn tại. vui lòng thử lại hoặc quay lại trang chủ.",
+    "backHome": "Trang chủ"
   }
 }

@@ -1,5 +1,9 @@
 # Cấu trúc dự án
 
+**applications/:**
+
+Tầng chứa các logic từ các API bên ngoài (oidc-manager).
+
 **config/:**
 
 Tầng lưu trữ các thông tin các cấu hình của ứng dụng (oidc).
@@ -12,7 +16,7 @@ Chứa các logic liên quan đến việc lấy và lưu trữ dữ liệu, th�
 
 Chứa các logic nghiệp vụ (business logic) và các mô hình (model) của ứng dụng.
 
-- types: Chứa types cần thiết cho typescript.
+- types: Chứa types của model cần thiết cho typescript.
 - useCases: Chứa các logic
 
 **presentation/**

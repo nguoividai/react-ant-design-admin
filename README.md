@@ -1,12 +1,8 @@
 # Cấu trúc dự án
 
-**applications/:**
-
-Tầng xử lý các API bên ngoài.
-
 **config/:**
 
-Tầng lưu trữ các thông tin cấu hình của ứng dụng.
+Tầng lưu trữ các thông tin các cấu hình của ứng dụng (oidc).
 
 **data/:**
 
@@ -15,6 +11,9 @@ Chứa các logic liên quan đến việc lấy và lưu trữ dữ liệu, th�
 **domain/**
 
 Chứa các logic nghiệp vụ (business logic) và các mô hình (model) của ứng dụng.
+
+- types: Chứa types cần thiết cho typescript.
+- useCases: Chứa các logic
 
 **presentation/**
 

@@ -1,7 +1,7 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 // Manually import the translation files
-import vieTranslation from "./locales/vi/translation.json";
+import vieTranslation from "./presentation/locales/vi/translation.json";
 
 // Initialize i18next with configurations
 i18n

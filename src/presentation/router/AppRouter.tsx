@@ -6,7 +6,7 @@ import Page404 from "../pages/Page404";
 
 const Login = React.lazy(() => import("../views/auth/login"));
 const Test = React.lazy(() => import("../views/test"));
-const SignInOidc = React.lazy(() => import("../views/sign-in-oidc"));
+const SignInOidc = React.lazy(() => import("../views/signin-oidc"));
 
 export const AppRouter: React.FC = () => {
   const protectedLayout = (

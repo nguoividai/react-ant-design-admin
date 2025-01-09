@@ -2,7 +2,7 @@ import { UserManager } from "oidc-client-ts";
 import { oidcConfig } from "../config/oidc";
 
 class OIDCManager {
-  private userManager: UserManager;
+  readonly userManager: UserManager;
 
   constructor() {
     this.userManager = new UserManager(oidcConfig);
@@ -22,6 +22,7 @@ class OIDCManager {
 
   public handleCallback = async () => {
     const user = await this.userManager.signinRedirectCallback();
+
     return user;
   };
 }

@@ -2,7 +2,7 @@ import { memo, useEffect } from "react";
 import oidcManager from "../../applications/oidc-manager";
 import { useNavigate } from "react-router-dom";
 
-function SignInOidc() {
+function SigninOidc() {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -17,4 +17,4 @@ function SignInOidc() {
   return <>Loading...</>;
 }
 
-export default memo(SignInOidc);
+export default memo(SigninOidc);

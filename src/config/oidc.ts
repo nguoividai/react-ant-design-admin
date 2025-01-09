@@ -1,4 +1,5 @@
-import { UserManagerSettings } from "oidc-client-ts";
+import { UserManagerSettings, WebStorageStateStore } from "oidc-client-ts";
+import CookieStorage from "../applications/cookie-storage";
 
 // Cấu hình OIDC
 export const oidcConfig: UserManagerSettings = {
@@ -9,4 +10,5 @@ export const oidcConfig: UserManagerSettings = {
   scope: "reesoft.public reesoft.private openid email profile offline_access",
   redirect_uri: "http://localhost:5173/signin-oidc",
   post_logout_redirect_uri: "http://localhost:5173/signout-callback-oidc",
+  userStore: new WebStorageStateStore({ store: CookieStorage }),
 };

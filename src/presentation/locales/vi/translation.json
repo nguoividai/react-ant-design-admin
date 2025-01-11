@@ -7,7 +7,11 @@
     "UserSystem": "Người dùng hệ thống",
     "403SubTitle": "Bạn không được phép truy cập vào trang này",
     "404SubTitle": "Trang này không tồn tại. vui lòng thử lại hoặc quay lại trang chủ.",
-    "BackHome": "Trang chủ"
+    "BackHome": "Trang chủ",
+    "Loading": "Đang tải",
+    "Logout": "Đăng xuất",
+    "ReLogin": "Đăng nhập lại",
+    "SubTitleLogout": "Bạn đã đăng xuất thành công. Chúng tôi hy vọng sẽ được chào đón bạn quay lại trong lần sau."
   },
   "auth": {
     "SignIn": "Trang đăng nhập",

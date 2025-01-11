@@ -4,8 +4,8 @@ import RequireAuth from "./RequireAuth";
 import MainLayout from "../layouts/main/MainLayout/MainLayout";
 import Page404 from "../pages/Page404";
 
-const Login = React.lazy(() => import("../views/auth/login"));
 const Test = React.lazy(() => import("../views/test"));
+const Logout = React.lazy(() => import("../pages/Logout"));
 const SignInOidc = React.lazy(() => import("../views/signin-oidc"));
 
 export const AppRouter: React.FC = () => {
@@ -21,8 +21,8 @@ export const AppRouter: React.FC = () => {
         <Route path={"/"} element={protectedLayout}>
           <Route index element={<Test />} />
         </Route>
-        <Route path="/auth/login" element={<Login />} />
         <Route path="/signin-oidc" element={<SignInOidc />} />
+        <Route path="/signout-callback-oidc" element={<Logout />} />
         <Route path="*" element={<Page404 />} />
       </Routes>
     </BrowserRouter>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { memo, useEffect, useState } from "react";
 import MainSider from "../sider/MainSider/MainSider";
 import MainContent from "../MainContent/MainContent";
 import { MainHeader } from "../MainHeader/MainHeader";
@@ -11,6 +11,8 @@ import { MobileHeader } from "../sider/SiderMenu/MobileMenu";
 import { useDialog } from "../../../shared/hooks/useDialog";
 import SiderMenu from "../sider/SiderMenu/SiderMenu";
 import useLayout from "../../../../domain/useCases/layout";
+import BaseToggleMenu from "../../../shared/components/BaseToggleMenu/BaseToggleMenu";
+import oidcManager from "../../../../applications/oidc-manager";
 
 const MainLayout: React.FC = () => {
   const [isTwoColumnsLayout, setIsTwoColumnsLayout] = useState(true);
@@ -22,6 +24,11 @@ const MainLayout: React.FC = () => {
   useEffect(() => {
     setIsTwoColumnsLayout(isDesktop);
   }, [isDesktop]);
+
+  const logout = (e: React.MouseEvent<HTMLElement>) => {
+    e.preventDefault();
+    oidcManager.logout();
+  };
 
   const items: MenuProps["items"] = [
     {
@@ -41,11 +48,7 @@ const MainLayout: React.FC = () => {
       key: "2",
       icon: <LogoutOutlined />,
       label: (
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.aliyun.com"
-        >
+        <a href="#/" onClick={logout}>
           Logout
         </a>
       ),
@@ -65,7 +68,11 @@ const MainLayout: React.FC = () => {
         >
           <div className="right-section">
             {(isDesktop || isBigScreen) && collapsed && (
-              <MenuOutlined onClick={() => setCollapsed(false)} />
+              <BaseToggleMenu
+                shape="circle"
+                icon={<MenuOutlined />}
+                onClick={() => setCollapsed(false)}
+              />
             )}
             {mobileOnly && (
               <>
@@ -106,4 +113,4 @@ const MainLayout: React.FC = () => {
   );
 };
 
-export default MainLayout;
+export default memo(MainLayout);

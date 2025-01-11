@@ -36,7 +36,10 @@ const MainSider: React.FC<MainSiderProps> = ({
           <SiderMenu setCollapsed={setCollapsed} />
         </S.SiderContent>
       </S.Sider>
-      <Overlay onClick={toggleSider} show={!isCollapsed} />
+
+      {tabletOnly && (
+        <Overlay onClick={toggleSider} show={(!isCollapsed).toString()} />
+      )}
     </>
   );
 };

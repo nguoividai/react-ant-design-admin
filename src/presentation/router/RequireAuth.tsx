@@ -1,10 +1,25 @@
-import React from "react";
-import { Navigate } from "react-router-dom";
+import React, { memo, useEffect } from "react";
+import oidcManager from "../../applications/oidc-manager";
 
-const RequireAuth: React.FC<any> = ({ children }) => {
-  const token = "1";
-
-  return token ? <>{children}</> : <Navigate to="/auth/login" replace />;
+type RequireAuthProps = {
+  children: React.ReactNode;
 };
 
-export default RequireAuth;
+const RequireAuth: React.FC<RequireAuthProps> = ({ children }) => {
+  useEffect(() => {
+    const login = async () => {
+      const user = await oidcManager.getUser();
+      if (!user) oidcManager.login();
+    };
+
+    const timer = setTimeout(() => {
+      login();
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  return <>{children}</>;
+};
+
+export default memo(RequireAuth);

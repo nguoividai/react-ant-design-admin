@@ -1,7 +1,7 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from "styled-components";
 
 interface OverlayProps {
-  show: boolean;
+  show: string;
 }
 
 export const Overlay = styled.div<OverlayProps>`
@@ -10,10 +10,11 @@ export const Overlay = styled.div<OverlayProps>`
   height: 0;
 
   ${(props) =>
-    props.show &&
-    css`
-      backdrop-filter: blur(6px);
-      width: 100vw;
-      height: 100vh;
-    `}
+    props.show !== "false"
+      ? css`
+          backdrop-filter: blur(6px);
+          width: 100vw;
+          height: 100vh;
+        `
+      : undefined}
 `;

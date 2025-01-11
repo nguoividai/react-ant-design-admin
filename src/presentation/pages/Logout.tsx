@@ -10,7 +10,15 @@ const Logout: React.FC = () => {
   const goToHome = () => navigate("/");
 
   return (
-    <div style={{ width: "100vw" }}>
+    <div
+      style={{
+        width: "100vw",
+        height: "100vh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
       <Result
         title={t("common.Logout")}
         subTitle={t("common.SubTitleLogout")}
